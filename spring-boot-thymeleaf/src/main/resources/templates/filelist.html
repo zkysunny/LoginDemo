@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+文件详细
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <td>path</td>
+        <td>mode</td>
+        <td>type</td>
+        <td>sha</td>
+        <td>size</td>
+        <td>url</td>
+        <td>查看</td>
+        <td>编辑</td>
+        <td>删除</td>
+    </tr>
+    <tr  th:each="i,iterStat : ${file.tree}">
+        <tr>
+            <td><span th:text="${i.mode}" /></td>
+            <td><span th:text="${i.path}" /></td>
+            <td><span th:text="${i.type}" /></td>
+            <td><span th:text="${i.sha}" /></td>
+            <td><span th:text="${i.size}" /></td>
+            <td><span th:text="${i.url}" /></td>
+            <td ><a href="details.html" th:href="@{/detailfile(sha=${i.sha},xm=${i.xm})}">查看文件</a></td>
+            <td ><a href="details.html" th:href="@{/updatefile(sha=${i.sha},path=${i.path},xm=${i.xm})}">更新文件</a></td>
+            <td ><a href="details.html" th:href="@{/deletefile(sha=${i.sha},path=${i.path},xm=${i.xm})}">删除文件</a></td>
+            <!--<td ><a href="/updatefile?sha=${i.sha}&xm=${i.xm}&path=${i.path}">更新文件</a></td>
+            <td ><a href="/deletefile?sha=${i.sha}&xm=${i.xm}&path=${i.path}">删除文件</a></td>-->
+        </tr>
+        </tr>
+</table>
+</body>
+</html>

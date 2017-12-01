@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<h1>您好，请选择您要操作的项目</h1>
+<form action="/queryallfiles" method="post" >
+    <tr  th:each="i,iterStat : ${xms}">
+        <br/><br/>
+        <span th:text="${i.path}" />: <input th:value="${i.path}"  type="radio" name="xm"/>
+    </tr>
+    <br/><br/>
+    确认： <input type="submit"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1>您好，请更新文件内容</h1>
+<form action="/submitfile" method="post" >
+    <input type="hidden" name="path" th:value="${path}"/>
+    <input type="hidden" name="sha" th:value="${sha}"/>
+    <input type="hidden" name="xm" th:value="${xm}"/>
+    您要更改的文件内容：
+    <textarea name="content" cols="100" rows="10" th:text="${content}">
+         </textarea>
+    <br/><br/>
+    确认： <input type="submit"/>
+</form>
+
+</body>
+</html>
